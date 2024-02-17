@@ -29,11 +29,11 @@ app.get("/notes", (req, res) => {
     connection.connect((err) => {
         if(err) console.log("err", err);
 
-        let query = "SELECT * FROM notes WHERE done = 0"; 
+        let query = "SELECT name FROM notes WHERE done = 0"; 
 
         connection.query(query, (err, data) => {
             if(err) console.log("err", err);
-            console.log("notes", data);
+            console.log("name", data);
             res.json(data);
         })
     })
