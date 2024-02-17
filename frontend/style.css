@@ -1,0 +1,18 @@
+body {
+    background-color: lightgrey;
+}
+input {
+    width: 600px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+textarea {
+    width: 600px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+
+

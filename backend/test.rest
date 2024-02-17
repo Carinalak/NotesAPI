@@ -8,8 +8,9 @@ POST http://localhost:3000/notes
 Content-Type: application/json
 
 {
-  "name": "block",
-  "notes": "Här ska det stå info om allt möjligt!"
+  "name": "skrivbord",
+  "notes": "Här ska det stå info om allt möjligt!",
+  "userId": "34"
 }
 
 ###

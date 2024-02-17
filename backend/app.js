@@ -43,12 +43,13 @@ app.get("/notes", (req, res) => {
 app.post("/notes", (req, res) => {
     let name = req.body.name;       
     let notes = req.body.notes;
+    let userId = req.body.userId;
 
     connection.connect((err) => {
         if (err) console.log("err", err);
         
-        let query = "INSERT into notes (name, notes) VALUES (?, ?)";
-        let values = [name, notes];
+        let query = "INSERT into notes (name, notes, userId) VALUES (?, ?, ?)";
+        let values = [name, notes, userId];
          
         connection.query(query, values, (err, data) => {
             if(err) console.log("err", err);
@@ -59,7 +60,7 @@ app.post("/notes", (req, res) => {
 })
 
 
-// gör så att bara specifika get visas.
+
 // Fixa till post
 // Skriv ut listan på get i frontenden
 
