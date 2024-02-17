@@ -1,0 +1,14 @@
+# @name getNotes
+GET http://localhost:3000/notes
+
+###
+
+// SKAPA NOTE
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+  "notes": "Uppgift 3"
+}
+
+###
