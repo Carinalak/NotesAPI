@@ -42,14 +42,14 @@ app.get("/notes", (req, res) => {
 
 app.post("/notes", (req, res) => {
     let name = req.body.name;       
-    let notes = req.body.notes;
+    let note = req.body.note;
     let userId = req.body.userId;
 
     connection.connect((err) => {
         if (err) console.log("err", err);
         
-        let query = "INSERT into notes (name, notes, userId) VALUES (?, ?, ?)";
-        let values = [name, notes, userId];
+        let query = "INSERT into notes (name, note, userId) VALUES (?, ?, ?)";
+        let values = [name, note, userId];
          
         connection.query(query, values, (err, data) => {
             if(err) console.log("err", err);

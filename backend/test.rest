@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
   "name": "skrivbord",
-  "notes": "Här ska det stå info om allt möjligt!",
+  "note": "Här ska det stå info om allt möjligt!",
   "userId": "34"
 }
 
