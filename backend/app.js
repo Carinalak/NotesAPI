@@ -39,7 +39,6 @@ app.get("/notes", (req, res) => {
     })
 })
 
-
 app.post("/notes", (req, res) => {
     let name = req.body.name;       
     let note = req.body.note;
@@ -59,8 +58,39 @@ app.post("/notes", (req, res) => {
     })  
 })
 
+app.delete("/notes/:notesId", (req, res) => {
+    let notesId = req.params.notesId;
+
+    connection.connect((err) => {
+        if (err) console.log("err", err);
+        // soft delete - är kvar i databasen men blir 0 = 1
+        // Vi ändrar också vår get syntax så att det soft-deletade försvinner från sidan.
+        let query = "UPDATE notes SET done = 1 WHERE id = ?";  
+        let values = [notesId];
+
+        connection.query(query, values, (err, data) => {
+            if (err) console.log("err", err);
+
+            console.log("notes", data);
+            res.json({message: "Note raderad"});
+        })
+
+    })
+})
 
 
+// ------------- ATT GÖRA -------------------- //
+
+// Kunna öppna en note genom att klicka på namnet
+// Kunna redigera en note
+// Kunna radera en note
+
+// Logga in en användare
+// Kunna välja om du vill se en note i redigeringsläge eller i visningsläge
+// Göra en meny i frontend
+
+
+// -------------- KLARA ---------------------- //
 // Fixa till post
 // Skriv ut listan på get i frontenden
 
