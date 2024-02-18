@@ -17,6 +17,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 const connection = require("./lib/conn.js");
+const CryptoJS = require("crypto-js");
 
 
 
@@ -38,6 +39,24 @@ app.get("/notes", (req, res) => {
         })
     })
 })
+
+// HÄMTA SPECIFIK NOTE
+
+app.get("/notes/:id", (req, res) => {
+    connection.connect((err) => {
+        if(err) console.log("err", err);
+
+        let query = "SELECT note FROM notes WHERE done = 0"; 
+
+        connection.query(query, (err, data) => {
+            if(err) console.log("err", err);
+            console.log("name", data);
+            res.json(data);
+        })
+    })
+});
+  
+// ------------------------ SKAPA NY NOTE -------------------------- //
 
 app.post("/notes", (req, res) => {
     let name = req.body.name;       
@@ -65,7 +84,7 @@ app.delete("/notes/:notesId", (req, res) => {
         if (err) console.log("err", err);
         // soft delete - är kvar i databasen men blir 0 = 1
         // Vi ändrar också vår get syntax så att det soft-deletade försvinner från sidan.
-        let query = "UPDATE notes SET done = 1 WHERE id = ?";  
+        let query = "UPDATE notes SET done = 1 WHERE id = ?"; 
         let values = [notesId];
 
         connection.query(query, values, (err, data) => {
@@ -77,6 +96,8 @@ app.delete("/notes/:notesId", (req, res) => {
 
     })
 })
+
+
 
 
 // ------------- ATT GÖRA -------------------- //
@@ -95,34 +116,4 @@ app.delete("/notes/:notesId", (req, res) => {
 // Skriv ut listan på get i frontenden
 
 
-
-
-
-
-
-
-
-
-
-/*
-app.post("/notes", (req, res) => {       
-    
-    let notes = req.body.notes;
-
-    connection.connect((err) => {
-        if (err) console.log("err", err);
-// Första ? är note andra ? är userId - i arrayen som kommer på nästa rad. Man gör så för att det inte ska kunna bli hackat.
-        let query = "INSERT into notes (notes) VALUES (?)";
-        let values = [notes];
-         
-        connection.query(query, values, (err, data) => {
-            if(err) console.log("err", err);
-            console.log("notes", data);
-            res.json({message: "Notes sparad"});
-        })
-    })
-    
-})
-
-*/
 module.exports = app;

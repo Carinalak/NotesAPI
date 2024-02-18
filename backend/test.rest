@@ -3,6 +3,16 @@ GET http://localhost:3000/notes
 
 ###
 
+
+// HÄMTA SPECIFIK NOTE
+
+GET http://localhost:3000/notes/27
+
+
+###
+
+
+
 // SKAPA NOTE
 POST http://localhost:3000/notes
 Content-Type: application/json
@@ -15,6 +25,30 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/notes/12
+DELETE http://localhost:3000/notes/14
+
+###
+
+
+// SKAPA USER
+POST http://localhost:3000/notesuser/users/add
+Content-Type: application/json
+
+{
+  "name": "Anna Andersson",
+  "email": "annaandersson@mail.com",
+  "password": "test"
+}
+
+
+
+// LOGGA IN USER // VID FEL LÖSENORD SÅ SKALL SVARA MED 401
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "emilia@mail.com",
+  "password": "test"
+}
 
 ###

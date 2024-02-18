@@ -6,7 +6,11 @@ input {
     border: 1px solid black;
     border-radius: 2px;
 }
+.main {
+    display: flex;
+    flex-direction: column;
 
+}
 textarea {
     width: 600px;
     height: 300px;
@@ -14,5 +18,24 @@ textarea {
     border-radius: 2px;
 }
 
+.delete-icon {
+    width: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+ul {
+    list-style-type: none;
+    width: 400px;
+    padding: 0;
+    margin-left: 0;
+}
+
+li {
+    height: 20px;
+}
+
+li:nth-child(odd) {
+    background-color: #f2f2f2;
+}
 
 

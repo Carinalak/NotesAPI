@@ -1,27 +1,35 @@
-
-let notesList = document.getElementById("notesList");
+import deleteNote from "./deleteNote.js";
 
 export default function printNotes() {
     fetch("http://localhost:3000/notes")
     .then(res => res.json())
     .then(data => {
         console.log("name", data);
-    // innan vi ska skriva nånting, måste vi först tömma listan, innan .map:
-    notesList.innerHTML = "";;
+        // innan vi ska skriva nånting, måste vi först tömma listan, innan .map:
+        notesList.innerHTML = "";
 
-    data.map(notes => {
+        data.forEach(note => {
+            let li = document.createElement("li");
+            let deleteIcon = document.createElement("img");
 
-        let li = document.createElement("li")
+            deleteIcon.src = "img/deleteIcon.png";
+            deleteIcon.alt = "Ta bort";
+            deleteIcon.classList.add("delete-icon");
 
-        li.innerText = notes.name;
-        console.log(notesList);
+            deleteIcon.addEventListener("click", (event) => {
+               
+                deleteNote(note.id); 
+            });
 
-       // li.addEventListener("click", () => {
-    //        deleteNotes(notes.id)
-    //    })
+            li.appendChild(deleteIcon);
 
-        notesList.appendChild(li);       // det är här jag kopplar in li under ul -tagen.
+            let textNode = document.createTextNode(note.name);
+            li.appendChild(textNode);
+
+            notesList.appendChild(li);
+        });
     })
-
-    })
+    .catch(error => {
+        console.error("Error fetching notes:", error);
+    });
 }

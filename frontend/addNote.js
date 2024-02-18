@@ -26,6 +26,7 @@ export default saveNewNoteBtn.addEventListener("click", () => {             //ex
     .then(data => {
         console.log("spara note", data);
         newNoteName.value = "";
+        newNoteText.value = "";
 
         printNotes();
     })
