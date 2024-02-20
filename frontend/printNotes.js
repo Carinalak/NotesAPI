@@ -9,15 +9,17 @@ export default function printNotes() {
         notesList.innerHTML = "";
 
         data.forEach(note => {
+            
             let li = document.createElement("li");
             let deleteIcon = document.createElement("img");
+            let notesId = note.id;
 
             deleteIcon.src = "img/deleteIcon.png";
             deleteIcon.alt = "Ta bort";
             deleteIcon.classList.add("delete-icon");
 
-            deleteIcon.addEventListener("click", (event) => {
-               
+            deleteIcon.addEventListener("click", () => {
+                console.log("noteid", note)
                 deleteNote(note.id); 
             });
 

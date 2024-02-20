@@ -30,7 +30,7 @@ app.get("/notes", (req, res) => {
     connection.connect((err) => {
         if(err) console.log("err", err);
 
-        let query = "SELECT name FROM notes WHERE done = 0"; 
+        let query = "SELECT name, id FROM notes WHERE done = 0"; 
 
         connection.query(query, (err, data) => {
             if(err) console.log("err", err);
@@ -42,20 +42,27 @@ app.get("/notes", (req, res) => {
 
 // HÄMTA SPECIFIK NOTE
 
-app.get("/notes/:id", (req, res) => {
-    connection.connect((err) => {
-        if(err) console.log("err", err);
+app.get("/notes/:notesId", (req, res) => {
+    let notesId = req.params.notesId;
 
-        let query = "SELECT note FROM notes WHERE done = 0"; 
+    connection.query("SELECT * FROM notes WHERE id = ? AND done = 0", [notesId], (err, data) => {
+        if (err) {
+            console.log("Error:", err);
+            return res.status(500).json({ message: "Internal Server Error" });
+        }
 
-        connection.query(query, (err, data) => {
-            if(err) console.log("err", err);
-            console.log("name", data);
-            res.json(data);
-        })
-    })
+        if (data.length === 0) {
+            return res.status(404).json({ message: "Note not found" });
+        }
+
+        res.json(data);
+    });
 });
-  
+
+
+
+
+
 // ------------------------ SKAPA NY NOTE -------------------------- //
 
 app.post("/notes", (req, res) => {
@@ -79,23 +86,24 @@ app.post("/notes", (req, res) => {
 
 app.delete("/notes/:notesId", (req, res) => {
     let notesId = req.params.notesId;
-
+    console.log("radera notesId", notesId);
     connection.connect((err) => {
         if (err) console.log("err", err);
-        // soft delete - är kvar i databasen men blir 0 = 1
-        // Vi ändrar också vår get syntax så att det soft-deletade försvinner från sidan.
+
         let query = "UPDATE notes SET done = 1 WHERE id = ?"; 
         let values = [notesId];
-
+        
+       
         connection.query(query, values, (err, data) => {
             if (err) console.log("err", err);
-
             console.log("notes", data);
             res.json({message: "Note raderad"});
         })
 
     })
 })
+
+
 
 
 
@@ -112,7 +120,7 @@ app.delete("/notes/:notesId", (req, res) => {
 
 
 // -------------- KLARA ---------------------- //
-// Fixa till post
+// Fixa till första post
 // Skriv ut listan på get i frontenden
 
 

@@ -3,18 +3,21 @@ body {
 }
 input {
     width: 600px;
-    border: 1px solid black;
     border-radius: 2px;
 }
 .main {
     display: flex;
     flex-direction: column;
-
+    align-items: center;
+    
+}
+.main-container {
+    position: relative;
+    width: 600px;
 }
 textarea {
     width: 600px;
     height: 300px;
-    border: 1px solid black;
     border-radius: 2px;
 }
 
@@ -25,7 +28,7 @@ textarea {
 }
 ul {
     list-style-type: none;
-    width: 400px;
+    width: 600px;
     padding: 0;
     margin-left: 0;
 }
@@ -38,4 +41,7 @@ li:nth-child(odd) {
     background-color: #f2f2f2;
 }
 
-
+.save-button {
+    position: relative;
+    right: 0;
+}

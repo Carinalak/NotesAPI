@@ -1,8 +1,8 @@
 import printNotes from "./printNotes.js";
 
 
-
 export default function deleteNote(notesId) {
+  
     console.log("delete note", notesId);
 
     fetch("http://localhost:3000/notes/" + notesId, {
@@ -11,8 +11,6 @@ export default function deleteNote(notesId) {
     .then(res => res.json())
     .then(data => {
         console.log("Note raderad", data);
-
-
 
         printNotes();
     })
