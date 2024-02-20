@@ -35,9 +35,11 @@ POST http://localhost:3000/users/notes/notesuser
 Content-Type: application/json
 
 {
+  
   "name": "Anna Andersson",
   "email": "annaandersson@mail.com",
   "password": "test"
+
 }
 
 ###
