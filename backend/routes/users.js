@@ -4,6 +4,7 @@ const mysql = require("mysql2");
 const CryptoJS = require("crypto-js");
 
 
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -13,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 // --------------------- LÄGGA TILL NY USER -------------------- //
 
-router.post("/notes/notesuser", (req, res) => {
+router.post("/users/notes/notesuser", (req, res) => {
   
   let name = req.body.name;       
   let email = req.body.email;

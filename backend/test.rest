@@ -31,7 +31,7 @@ DELETE http://localhost:3000/notes/10
 
 
 // SKAPA USER
-POST http://localhost:3000/notes/notesuser
+POST http://localhost:3000/users/notes/notesuser
 Content-Type: application/json
 
 {
