@@ -43,6 +43,14 @@ Content-Type: application/json
 ###
 
 
+// HÄMTA USERS
+
+GET http://localhost:3000/users/notes/notesuser
+
+
+###
+
+
 
 // LOGGA IN USER // VID FEL LÖSENORD SÅ SKALL SVARA MED 401
 POST http://localhost:3000/users/login

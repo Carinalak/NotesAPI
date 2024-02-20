@@ -28,7 +28,7 @@ router.post("/notes/notesuser", (req, res) => {
   connection.connect((err) => {
     if(err) console.log("err", err);
 
-    let query = "INSERT into notes/notesuser (name, email, password) VALUES (?, ?, ?)"; 
+    let query = "INSERT INTO notesuser (name, email, password) VALUES (?, ?, ?)"; 
     let values = [name, email, password];
 
         connection.query(query, values, (err, data) => {
@@ -42,16 +42,12 @@ router.post("/notes/notesuser", (req, res) => {
 
 // HÄMTA ALLA USERS
 
-app.get("/notes/notesuser", (req, res) => {
-  //let name = req.body.name;       
-  //let email = req.body.email;
-  //let password = req.body.password;
+router.get("/notes/notesuser", (req, res) => {
 
   connection.connect((err) => {
       if(err) console.log("err", err);
 
-      let query = "SELECT (name, email, password) FROM notes";
-      let values = [name, email, password];
+      let query = "SELECT * FROM notesuser";
 
       connection.query(query, (err, data) => {
           if(err) console.log("err", err);
