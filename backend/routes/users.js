@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const mysql = require("mysql2"); 
 const CryptoJS = require("crypto-js");
+const connection = require("../lib/conn.js");
 
 
 
@@ -14,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 // --------------------- LÄGGA TILL NY USER -------------------- //
 
-router.post("/users/notes/notesuser", (req, res) => {
+router.post("/notes/notesuser", (req, res) => {
   
   let name = req.body.name;       
   let email = req.body.email;
@@ -27,7 +28,7 @@ router.post("/users/notes/notesuser", (req, res) => {
   connection.connect((err) => {
     if(err) console.log("err", err);
 
-    let query = "INSERT into notesuser (name, email, password) VALUES (?, ?, ?)"; 
+    let query = "INSERT into notes/notesuser (name, email, password) VALUES (?, ?, ?)"; 
     let values = [name, email, password];
 
         connection.query(query, values, (err, data) => {
@@ -35,18 +36,31 @@ router.post("/users/notes/notesuser", (req, res) => {
             console.log("Ny användare tillagd:", newUser);
             res.json({message: "User sparad"});
         })
-
-    .then(result => {
-
-      console.log("Ny användare tillagd:", newUser);
-      res.json(newUser);
-    })
-    .catch(error => {
-      console.error("Fel vid tillägg av ny användare:", error);
-      res.status(500).json({ error: "Internt serverfel" });
-    });
 });
 });
+
+
+// HÄMTA ALLA USERS
+
+app.get("/notes/notesuser", (req, res) => {
+  //let name = req.body.name;       
+  //let email = req.body.email;
+  //let password = req.body.password;
+
+  connection.connect((err) => {
+      if(err) console.log("err", err);
+
+      let query = "SELECT (name, email, password) FROM notes";
+      let values = [name, email, password];
+
+      connection.query(query, (err, data) => {
+          if(err) console.log("err", err);
+          console.log("name", data);
+          res.json(data);
+      })
+  })
+})
+
 
 
 /*
