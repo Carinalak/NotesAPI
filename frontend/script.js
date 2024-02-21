@@ -47,7 +47,7 @@ function printLoginForm() {
     userForm.append(inputEmail, inputPassword, loginBtn);
 }
 
-// ------------------------------------------------- PRINT LOGOUT BUTTON  02.49 video 19 jan forts ------------------------------------------------------------ //
+// ----------------- PRINT LOGOUT BUTTON -------------------------- //
 
 function printLogoutBtn() {
     userForm.innerHTML = "";                                    // Jag måste tömma tidigare saker så att det inte blir dubletter.
@@ -64,8 +64,6 @@ function printLogoutBtn() {
     userForm.appendChild(logoutBtn);
 
 }
-
-
 
 
 /*
