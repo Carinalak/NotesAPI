@@ -88,29 +88,4 @@ router.get("/notes/notesuser", (req, res) => {
 
 
 
-
-/*
-// ----------- HÄMTA SPECIFIK USER // SKICKA HELA OBJEKTET ----------- //
-
-router.post("/", (req, res) => {
-  let id = new ObjectId(req.body.id);
-
-  req.app.locals.db.collection("users").findOne({ _id: id })
-    .then(user => {
-      if (user) {
-        res.json(user);
-        console.log("Användare: ", user);
-      } else {
-        res.status(404).json({ error: "Användaren hittades inte." });
-        console.log("Användaren hittades inte, kan vara fel");
-      }
-    })
-});
-
-*/
-
-
-
-
-
 module.exports = router;

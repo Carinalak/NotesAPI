@@ -29,9 +29,43 @@ export default function printNotes() {
             li.appendChild(textNode);
 
             notesList.appendChild(li);
+
+            li.addEventListener("click", () => {
+            console.log("Click!");
+
+            });
+
         });
     })
     .catch(error => {
         console.error("Error fetching notes:", error);
     });
 }
+
+
+
+
+
+
+function printNote() {
+    fetch("http:localhost:3000/notes/:notesId")
+    .then(res => res.json())
+    .then(data => {
+
+
+        data.map(note => {
+            let NoteName = document.createElement("h3");
+            let NoteText = document.createElement("div");
+            NoteName.innerText = notes.name;
+            NoteText.innerText = notes.note;
+
+            NoteName.addEventListener("click", () => {
+
+
+            });
+
+        })
+    })
+}
+
+printNote();
