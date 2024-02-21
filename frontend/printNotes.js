@@ -51,22 +51,27 @@ export default function printNotes() {
 
  // SKRIVER UT DET DOKUMENT SOM MAN KLICKAR PÅ
  
-function openNote(noteId) {
-    fetch("http://localhost:3000/notes/" + noteId)
+function openNote(notesId) {
+    fetch("http://localhost:3000/notes/" + notesId)
     .then(res => res.json())
     .then(data => {
 
         document.getElementById("noteContainer").innerHTML = "";
 
         let h3 = document.createElement("h3");
-        h3.innerText = data.name;
+        h3.innerText = data[0].name;
 
         let div = document.createElement("div");
-        div.innerText = data.note;
+        div.innerText = data[0].note;
 
         let noteContainer = document.getElementById("noteContainer");
         noteContainer.appendChild(h3);
         noteContainer.appendChild(div);
+        console.log("data", data);
+        console.log(notesId);
+    })
+    .catch(error => {
+        console.error('Error fetching note:', error);
     });
 };
 
