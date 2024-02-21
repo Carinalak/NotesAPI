@@ -29,7 +29,7 @@ router.post("/notes/notesuser", (req, res) => {
     if(err) console.log("err", err);
 
     let query = "INSERT INTO notesuser (name, email, password) VALUES (?, ?, ?)"; 
-    let values = [name, email, password];
+    let values = [name, email, newUser.password];
 
         connection.query(query, values, (err, data) => {
             if(err) console.log("err", err);
@@ -38,6 +38,33 @@ router.post("/notes/notesuser", (req, res) => {
         })
 });
 });
+
+// ------------------- LOGGA IN USER ---------------------- //
+
+router.post("/notes/notesuser/login", (req, res) => {
+  const { email, password } = req.body;
+
+  connection.query("SELECT * FROM notesuser WHERE email = ?", [email], (err, results) => {
+      if (err) {
+          console.error("Error in database query:", err);
+          return res.status(500).json({ message: "Database error" });
+      }
+
+      if (results.length === 0) {
+          return res.status(401).json({ message: "User not found" });
+      }
+
+      const user = results[0];
+      const decryptedPassword = CryptoJS.AES.decrypt(user.password, "secret key").toString(CryptoJS.enc.Utf8);
+
+      if (decryptedPassword === password) {
+          return res.json({ message: "Login successful" });
+      } else {
+          return res.status(401).json({ message: "Invalid credentials" });
+      }
+  });
+});
+
 
 
 // HÄMTA ALLA USERS
@@ -59,6 +86,9 @@ router.get("/notes/notesuser", (req, res) => {
 
 
 
+
+
+
 /*
 // ----------- HÄMTA SPECIFIK USER // SKICKA HELA OBJEKTET ----------- //
 
@@ -77,35 +107,7 @@ router.post("/", (req, res) => {
     })
 });
 
-
-
-// ------------------- LOGGA IN USER ---------------------- //
-
-router.post("/login", (req, res) => {
-  const { userId, password } = req.body;
-
-  connection.query("SELECT * FROM users WHERE userId = ?", [userId], (err, results) => {
-      if (err) {
-          console.error("Error in database query:", err);
-          return res.status(500).json({ message: "Database error" });
-      }
-
-      if (results.length === 0) {
-          return res.status(401).json({ message: "User not found" });
-      }
-
-      const user = results[0];
-      const decryptedPassword = CryptoJS.AES.decrypt(user.password, "secret key").toString(CryptoJS.enc.Utf8);
-
-      if (decryptedPassword === password) {
-          return res.json({ message: "Login successful" });
-      } else {
-          return res.status(401).json({ message: "Invalid credentials" });
-      }
-  });
-});
 */
-
 
 
 
