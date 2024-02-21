@@ -36,13 +36,12 @@ export default function printNotes() {
             let textNode = document.createTextNode(note.name);
             li.appendChild(textNode);
 
-            notesList.appendChild(li);
-
             li.addEventListener("click", () => {
-            openNote();
-            console.log("Click!");
-
+                openNote(note.id);
+                console.log("Click!");
             });
+
+            notesList.appendChild(li);
         });
     })
     .catch(error => {
@@ -50,25 +49,24 @@ export default function printNotes() {
     });
 };
 
-
-// ------- SKRIVER UT DET DOKUMENT SOM MAN KLICKAR PÅ --------- //
-
-function openNote() {
-    fetch("http://localhost:3000/notes/" + id)
-
-    .then(res => res.json())
+ // SKRIVER UT DET DOKUMENT SOM MAN KLICKAR PÅ
+ 
+function openNote(noteId) {
+    fetch("http://localhost:3000/notes/" + noteId)
     .then(res => res.json())
     .then(data => {
-        data.forEach(notes => {
-            let h3 = document.createElement("h3");
-            h3.innerText = notes.name;
 
-            let div = document.createElement("div");
-            div.innerText = notes.note;
+        document.getElementById("noteContainer").innerHTML = "";
 
-            document.body.appendChild(h3);
-            document.body.appendChild(div);
-        });
+        let h3 = document.createElement("h3");
+        h3.innerText = data.name;
+
+        let div = document.createElement("div");
+        div.innerText = data.note;
+
+        let noteContainer = document.getElementById("noteContainer");
+        noteContainer.appendChild(h3);
+        noteContainer.appendChild(div);
     });
-}
+};
 
