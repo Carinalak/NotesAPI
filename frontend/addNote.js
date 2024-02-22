@@ -1,6 +1,6 @@
 import printNotes from "./printNotes.js";
 
-function newNote() {
+function newNoteForm() {
     let newNoteForm = document.getElementById("NewNoteForm");
 
     let newNoteName = document.createElement("input");
@@ -30,7 +30,7 @@ function newNote() {
     saveNewNoteBtn.innerText = "Spara";
     newNoteForm.appendChild(saveNewNoteBtn);
 }
-// newNote();
+ // newNoteForm();
 
 let newNoteName = document.getElementById("newNoteName");
 let newNoteText = document.getElementById("newNoteText");
@@ -61,6 +61,8 @@ export default saveNewNoteBtn.addEventListener("click", () => {             //ex
         newNoteText.value = "";
 
         printNotes();
+        
+        
     })
 
 });

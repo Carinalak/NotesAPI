@@ -17,6 +17,7 @@ function printLoginBtn() {
 
 if (localStorage.getItem("user")) {
     printLogoutBtn();
+    
     } else {
         printLoginBtn();
     }
@@ -29,32 +30,35 @@ loginBtn.addEventListener("click", () => {
     //  Här måsta jag fetcha och få svar med userns id (med input osv) 
 
     if (localStorage.getItem("user")) {
-        localStorage.removeItem("user")
+        localStorage.removeItem("user");
         notesList.innerHTML = "";
         printLoginBtn();
+        openNewNoteBtn.innerText = "";
+
 
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
             printLogoutBtn();
             printNotes();
-            printOpenNewNoteBtn ()
+            //printOpenNewNoteBtn();
+            //printAddNote();
 
-// --------------------- NewNoteBtn ---------------------------- //
-            function printOpenNewNoteBtn () {
-                let OpenNewNoteBtn = document.getElementById("OpenNewNoteBtn");
-                OpenNewNoteBtn.id = "OpenNewNoteBtn";
-                OpenNewNoteBtn.innerText = "Skapa nytt dokument";
-                // newNoteForm.appendChild(saveNewNoteBtn);
+// --------------------- OpenNewNoteBtn ---------------------------- //
+
+            function printOpenNewNoteBtn() {
+                let openNewNoteBtn = document.getElementById("openNewNoteBtn");
+                openNewNoteBtn.id = "OpenNewNoteBtn";
+                openNewNoteBtn.innerText = "Skapa nytt dokument";
+                newNoteForm.appendChild(saveNewNoteBtn);
                 
-                OpenNewNoteBtn.addEventListener("click",  () =>{
-                    newNote();
+                openNewNoteBtn.addEventListener("click",  () => {
+                    newNoteForm();
                     console.log();
-                })
-            }
-            
-        }
-})
-
+                });
+            };
+    // ------------- OpenNewNoteBtn slutar -------------------- //
+        };
+});
 
 
 
