@@ -40,3 +40,48 @@ loginBtn.addEventListener("click", () => {
         }
 })
 
+
+
+// --------------- NYTT DOKUMENT -------------------- //
+
+
+
+function newNote() {
+    
+        //let newNoteName = document.getElementById("newNoteName");
+        //let newNoteText = document.getElementById("newNoteText");
+        let newNoteForm = document.createElement("div");
+        newNoteForm.id = "newNoteForm";
+
+        let newNoteName = document.createElement("input");
+        newNoteName.type = "text";
+        newNoteName.id = "NewNoteName";
+        newNoteName.placeholder = "Notnamn";
+        newNoteName.style.width = "150px";
+        newNoteName.style.marginBottom = "10px";
+        newNoteName.style.borderRadius = "2px";
+
+
+        let newNoteText = document.createElement("textarea");
+        newNoteText.id = "newNoteText";
+        newNoteText.placeholder = "Text";
+        newNoteText.style.width = "600px";
+        newNoteText.style.height = "300px";
+        newNoteText.style.borderRadius = "2px";
+        newNoteText.style.marginBottom = "10px";
+
+        newNoteForm.appendChild(newNoteName);
+        newNoteForm.appendChild(document.createElement("br"));
+        newNoteForm.appendChild(newNotetext);
+        newNoteForm.appendChild(document.createElement("br"));
+
+
+        document.body.appendChild(newNoteForm);
+
+       // let saveNewNoteBtn = document.createElement("saveNewNoteBtn");
+        //saveNewNoteBtn.id ="saveNewNoteBtn";
+          
+
+}
+
+newNote();
