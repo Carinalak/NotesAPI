@@ -44,14 +44,15 @@ loginBtn.addEventListener("click", () => {
 
 // --------------- NYTT DOKUMENT -------------------- //
 
-
+/*
 
 function newNote() {
     
         //let newNoteName = document.getElementById("newNoteName");
         //let newNoteText = document.getElementById("newNoteText");
-        let newNoteForm = document.createElement("div");
-        newNoteForm.id = "newNoteForm";
+        // let newNoteForm = document.createElement("div");
+        // newNoteForm.id = "newNoteForm";
+        let newNoteForm = document.getElementById("newNoteForm");
 
         let newNoteName = document.createElement("input");
         newNoteName.type = "text";
@@ -76,7 +77,11 @@ function newNote() {
         newNoteForm.appendChild(document.createElement("br"));
 
 
-        document.body.appendChild(newNoteForm);
+        let saveNewNoteBtn = document.createElement("button");
+        saveNewNoteBtn.id = "saveNewNoteBtn";
+        saveNewNoteBtn.className = "save-button";
+        saveNewNoteBtn.innerText = "Spara";
+        newNoteForm.appendChild(saveNewNoteBtn);
 
        // let saveNewNoteBtn = document.createElement("saveNewNoteBtn");
         //saveNewNoteBtn.id ="saveNewNoteBtn";
@@ -84,4 +89,38 @@ function newNote() {
 
 }
 
-newNote();
+newNote();*/
+
+/*
+function newNote() {
+    let newNoteForm = document.getElementById("NewNoteForm");
+
+    let newNoteName = document.createElement("input");
+    newNoteName.type = "text";
+    newNoteName.id = "newNoteName";
+    newNoteName.placeholder = "Notnamn";
+    newNoteName.style.width = "150px";
+    newNoteName.style.marginBottom = "10px";
+    newNoteName.style.borderRadius = "2px";
+
+    let newNoteText = document.createElement("textarea");
+    newNoteText.id = "newNoteText";
+    newNoteText.placeholder = "Text";
+    newNoteText.style.width = "600px";
+    newNoteText.style.height = "300px";
+    newNoteText.style.borderRadius = "2px";
+    newNoteText.style.marginBottom = "10px";
+
+    newNoteForm.appendChild(newNoteName);
+    newNoteForm.appendChild(document.createElement("br"));
+    newNoteForm.appendChild(newNoteText);
+    newNoteForm.appendChild(document.createElement("br"));
+
+    let saveNewNoteBtn = document.createElement("button");
+    saveNewNoteBtn.id = "saveNewNoteBtn";
+    saveNewNoteBtn.className = "save-button";
+    saveNewNoteBtn.innerText = "Spara";
+    newNoteForm.appendChild(saveNewNoteBtn);
+}
+
+newNote();*/
