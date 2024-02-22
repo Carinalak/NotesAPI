@@ -5,31 +5,38 @@ import deleteNote from "./deleteNote.js";
 printNotes();
 
 
-let  loginBtn = document.getElementById("loginBtn")
+let loginBtn = document.getElementById("loginBtn");
+
+function printLogoutBtn() {
+    loginBtn.innerText = "Logga ut";
+}
+
+function printLoginBtn() {
+    loginBtn.innerText = "Logga in";
+}
+
 
 if (localStorage.getItem("user")) {
-    printLogOutBtn();
+    printLogoutBtn();
     } else {
-        printLogInBtn();
+        printLoginBtn();
     }
-    
-loginBtn.alt = "Logga in";
-loginBtn.style.marginBottom = "20px";
+
+//loginBtn.alt = "Logga in";
+//loginBtn.style.marginBottom = "20px";
 
 loginBtn.addEventListener("click", () => {
 
     //  Här måsta jag fetcha och få svar med userns id (med input osv) 
 
-    localStorage.setItem("user", JSON.stringify("mittlösenord"));
-    printLogOutBtn();
- 
-    function printLogOutBtn() {
-        loginBtn.innerText = "Logga ut";
-    }
+    if (localStorage.getItem("user")) {
+        localStorage.removeItem("user")
+        printLoginBtn();
+        } else  {
+            localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
+            printLogoutBtn();
+        }
 })
-    function printLogInBtn() {
-        logInBtn.innerText = "Logga in";
-    }
 
 
 /*
