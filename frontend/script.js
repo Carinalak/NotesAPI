@@ -15,7 +15,6 @@ function printLoginBtn() {
     loginBtn.innerText = "Logga in";
 }
 
-
 if (localStorage.getItem("user")) {
     printLogoutBtn();
     } else {
@@ -31,11 +30,11 @@ loginBtn.addEventListener("click", () => {
 
     if (localStorage.getItem("user")) {
         localStorage.removeItem("user")
+        notesList.innerHTML = "";
         printLoginBtn();
-        printNotes = "";
+
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
-
             printLogoutBtn();
             printNotes();
         }
