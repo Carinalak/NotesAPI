@@ -4,30 +4,41 @@ import deleteNote from "./deleteNote.js";
 
 
 
+// --------------------- OpenNewNoteBtn ---------------------------- //
+
+function printOpenNewNoteBtn() {
+    let openNewNoteBtn = document.getElementById("openNewNoteBtn");
+    //openNewNoteBtn.id = "openNewNoteBtn";
+    openNewNoteBtn.innerText = "Skapa nytt dokument";
+    
+    
+    openNewNoteBtn.addEventListener("click",  () => {
+        newNoteForm();
+        console.log();
+    });
+};
+// ------------- OpenNewNoteBtn slutar -------------------- //
 
 let loginBtn = document.getElementById("loginBtn");
 
 function printLogoutBtn() {
     loginBtn.innerText = "Logga ut";
 }
-
 function printLoginBtn() {
     loginBtn.innerText = "Logga in";
 }
-
 if (localStorage.getItem("user")) {
     printLogoutBtn();
     
     } else {
         printLoginBtn();
     }
-
 loginBtn.alt = "Logga in";
 loginBtn.style.marginBottom = "20px";
 
 loginBtn.addEventListener("click", () => {
 
-    //  Här måsta jag fetcha och få svar med userns id (med input osv) 
+    //  Här måsta jag fetcha och få svar med userns id om jag vill ha det (med input osv) 
 
     if (localStorage.getItem("user")) {
         localStorage.removeItem("user");
@@ -35,28 +46,13 @@ loginBtn.addEventListener("click", () => {
         printLoginBtn();
         openNewNoteBtn.innerText = "";
 
-
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
             printLogoutBtn();
             printNotes();
-            //printOpenNewNoteBtn();
-            //printAddNote();
+            printOpenNewNoteBtn();
+            printAddNote();
 
-// --------------------- OpenNewNoteBtn ---------------------------- //
-
-            function printOpenNewNoteBtn() {
-                let openNewNoteBtn = document.getElementById("openNewNoteBtn");
-                openNewNoteBtn.id = "OpenNewNoteBtn";
-                openNewNoteBtn.innerText = "Skapa nytt dokument";
-                newNoteForm.appendChild(saveNewNoteBtn);
-                
-                openNewNoteBtn.addEventListener("click",  () => {
-                    newNoteForm();
-                    console.log();
-                });
-            };
-    // ------------- OpenNewNoteBtn slutar -------------------- //
         };
 });
 
