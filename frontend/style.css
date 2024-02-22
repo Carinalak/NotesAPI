@@ -37,6 +37,11 @@ li {
     height: 20px;
 }
 
+#newNoteName {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
 li:nth-child(odd) {
     background-color: #f2f2f2;
 }

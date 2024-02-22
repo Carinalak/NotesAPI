@@ -5,7 +5,34 @@ import deleteNote from "./deleteNote.js";
 printNotes();
 
 
+let  loginBtn = document.getElementById("loginBtn")
 
+if (localStorage.getItem("user")) {
+    printLogOutBtn();
+    } else {
+        printLogInBtn();
+    }
+    
+loginBtn.alt = "Logga in";
+loginBtn.style.marginBottom = "20px";
+
+loginBtn.addEventListener("click", () => {
+
+    //  Här måsta jag fetcha och få svar med userns id (med input osv) 
+
+    localStorage.setItem("user", JSON.stringify("mittlösenord"));
+    printLogOutBtn();
+ 
+    function printLogOutBtn() {
+        loginBtn.innerText = "Logga ut";
+    }
+})
+    function printLogInBtn() {
+        logInBtn.innerText = "Logga in";
+    }
+
+
+/*
 
 function printLoginForm() {
     userForm.innerHTML = "";                    // Jag måste tömma tidigare saker så att det inte blir dubletter.
@@ -13,7 +40,7 @@ function printLoginForm() {
     inputEmail.placeholder = "E-post";
 
     let inputPassword = document.createElement("input");
-    inputPassword.placeholder = "Lösenord";
+    inputPassword.placeholder = "Lösenord"; 
 
     inputPassword.type = "password";
     let loginBtn = document.createElement("button");
@@ -64,7 +91,7 @@ function printLogoutBtn() {
     userForm.appendChild(logoutBtn);
 
 }
-
+*/
 
 /*
 
