@@ -6,14 +6,14 @@ function newNote() {
     let newNoteName = document.createElement("input");
     newNoteName.type = "text";
     newNoteName.id = "newNoteName";
-    newNoteName.placeholder = "Notnamn";
+    newNoteName.placeholder = "Dokumentnamn";
     newNoteName.style.width = "150px";
     newNoteName.style.marginBottom = "10px";
     newNoteName.style.borderRadius = "2px";
 
     let newNoteText = document.createElement("textarea");
     newNoteText.id = "newNoteText";
-    newNoteText.placeholder = "Text";
+    newNoteText.placeholder = "Skriv din text här.";
     newNoteText.style.width = "600px";
     newNoteText.style.height = "300px";
     newNoteText.style.borderRadius = "2px";
@@ -30,8 +30,7 @@ function newNote() {
     saveNewNoteBtn.innerText = "Spara";
     newNoteForm.appendChild(saveNewNoteBtn);
 }
-
-newNote();
+// newNote();
 
 let newNoteName = document.getElementById("newNoteName");
 let newNoteText = document.getElementById("newNoteText");

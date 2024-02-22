@@ -37,12 +37,28 @@ loginBtn.addEventListener("click", () => {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
             printLogoutBtn();
             printNotes();
+            printOpenNewNoteBtn ()
+
+// --------------------- NewNoteBtn ---------------------------- //
+            function printOpenNewNoteBtn () {
+                let OpenNewNoteBtn = document.getElementById("OpenNewNoteBtn");
+                OpenNewNoteBtn.id = "OpenNewNoteBtn";
+                OpenNewNoteBtn.innerText = "Skapa nytt dokument";
+                // newNoteForm.appendChild(saveNewNoteBtn);
+                
+                OpenNewNoteBtn.addEventListener("click",  () =>{
+                    newNote();
+                    console.log();
+                })
+            }
+            
         }
 })
 
 
 
-// --------------- NYTT DOKUMENT -------------------- //
+
+// ---------------------- NYTT DOKUMENT ----------------------- //
 
 /*
 
