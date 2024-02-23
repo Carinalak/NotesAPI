@@ -9,7 +9,6 @@ export default function printNotes() {
     .then(res => res.json())
     .then(data => {
         console.log("name", data);
-        // innan vi ska skriva nånting, måste vi först tömma listan, innan .map:
         notesList.innerHTML = "";
 
         data.forEach(note => {
