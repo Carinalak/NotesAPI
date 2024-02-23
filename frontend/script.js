@@ -13,7 +13,7 @@ function printOpenNewNoteBtn() {
     openNewNoteBtn.innerText = "Skapa nytt dokument";
     
     openNewNoteBtn.addEventListener("click",  () => {
-        newNoteForm(); 
+        printNewNoteForm(); 
         console.log();
     });
 };
@@ -52,9 +52,7 @@ loginBtn.addEventListener("click", () => {
             printLogoutBtn();
             printNotes();
             printOpenNewNoteBtn();
-            newNoteForm();
-
+            printNewNoteForm();
         };
 });
-
 

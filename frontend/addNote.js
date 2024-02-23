@@ -2,7 +2,7 @@ import printNotes from "./printNotes.js";
 
 
 // --------------------- NYTT DOKUMENT FORMULÄR -------------------- //
-function newNoteForm() {
+function printnewNoteForm() {
     let newNoteForm = document.getElementById("NewNoteForm");
 
     let newNoteName = document.createElement("input");
@@ -34,7 +34,7 @@ function newNoteForm() {
     newNoteForm.appendChild(saveNewNoteBtn);
     newNoteForm.appendChild(document.createElement("button"));
 }
-    // newNoteForm(); 
+    // printNewNoteForm(); 
 
 // -------------------------- SPARA KNAPP --------------------------- //
 
