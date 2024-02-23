@@ -36,7 +36,7 @@ function printNewNoteForm() {
 }
     printNewNoteForm(); 
 
-// -------------------------- SPARA KNAPP --------------------------- //
+// -------------------------- SPARA KNAPP FUNKTION --------------------------- //
 
 let newNoteName = document.getElementById("newNoteName");
 let newNoteText = document.getElementById("newNoteText");

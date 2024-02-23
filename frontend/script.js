@@ -7,9 +7,10 @@ import deleteNote from "./deleteNote.js";
 // --------------------- OpenNewNoteBtn ---------------------------- //
 
 function printOpenNewNoteBtn() {
+
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
     //let openNewNoteBtn = document.createElement("button");
-    //openNewNoteBtn.id = "openNewNoteBtn";
+    openNewNoteBtn.id = "openNewNoteBtn";
     openNewNoteBtn.innerText = "Skapa nytt dokument";
     
     openNewNoteBtn.addEventListener("click",  () => {
@@ -17,6 +18,18 @@ function printOpenNewNoteBtn() {
         console.log();
     });
 };
+
+// Dölj openNewNoteButton
+function hideOpenNewNoteBtn() {
+    let openNewNoteBtn = document.getElementById("openNewNoteBtn");
+    openNewNoteBtn.style.display = "none";
+}
+// Visa openNewButton
+function showOpenNewNoteBtn() {
+    let openNewNoteBtn = document.getElementById("openNewNoteBtn");
+    openNewNoteBtn.style.display = "inline"; 
+}
+
 // ------------- OpenNewNoteBtn slutar -------------------- //
 
 let loginBtn = document.getElementById("loginBtn");
@@ -29,7 +42,7 @@ function printLoginBtn() {
 }
 if (localStorage.getItem("user")) {
     printLogoutBtn();
-    
+
     } else {
         printLoginBtn();
     }
@@ -44,17 +57,17 @@ loginBtn.addEventListener("click", () => {
     if (localStorage.getItem("user")) {
         localStorage.removeItem("user");
         printLoginBtn();
+        hideOpenNewNoteBtn(); // Dölj knappen när du loggar ut
         notesList.innerHTML = "";
         newNoteForm.innerHTML = "";
-        printOpenNewNoteBtn.innerHTML = "";
-        
 
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
             printLogoutBtn();
             printOpenNewNoteBtn();
+            showOpenNewNoteBtn();
             printNotes();
             
-        };
+        }
 });
 
