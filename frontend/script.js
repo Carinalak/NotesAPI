@@ -5,7 +5,7 @@ import deleteNote from "./deleteNote.js";
 
 
 // --------------------- OpenNewNoteBtn ---------------------------- //
-/*
+
 function printOpenNewNoteBtn() {
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
     //let openNewNoteBtn = document.createElement("button");
@@ -16,7 +16,7 @@ function printOpenNewNoteBtn() {
         printNewNoteForm(); 
         console.log();
     });
-};*/
+};
 // ------------- OpenNewNoteBtn slutar -------------------- //
 
 let loginBtn = document.getElementById("loginBtn");
@@ -33,7 +33,7 @@ if (localStorage.getItem("user")) {
     } else {
         printLoginBtn();
     }
-    
+
 loginBtn.alt = "Logga in";
 loginBtn.style.marginBottom = "20px";
 
@@ -43,17 +43,18 @@ loginBtn.addEventListener("click", () => {
 
     if (localStorage.getItem("user")) {
         localStorage.removeItem("user");
+        printLoginBtn();
         notesList.innerHTML = "";
         newNoteForm.innerHTML = "";
-        printLoginBtn();
-        //openNewNoteBtn.innerText = "";
+        printOpenNewNoteBtn.innerHTML = "";
+        
 
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
             printLogoutBtn();
+            printOpenNewNoteBtn();
             printNotes();
-            //printOpenNewNoteBtn();
-            //printNewNoteForm();
+            
         };
 });
 
