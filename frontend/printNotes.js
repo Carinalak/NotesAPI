@@ -11,6 +11,9 @@ export default function printNotes() {
         console.log("name", data);
         notesList.innerHTML = "";
 
+         // Omvänd ordning på arrayen
+         data.reverse();
+
         data.forEach(note => {
             
             let li = document.createElement("li");

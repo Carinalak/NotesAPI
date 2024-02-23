@@ -33,6 +33,11 @@ function showOpenNewNoteBtn() {
 
 // ------------- OpenNewNoteBtn slutar -------------------- //
 
+// Logga ut användaren när de lämnar sidan
+window.onbeforeunload = function() {
+    localStorage.removeItem("user");
+};
+
 let loginBtn = document.getElementById("loginBtn");
 
 function printLogoutBtn() {
@@ -67,7 +72,7 @@ loginBtn.addEventListener("click", () => {
             printOpenNewNoteBtn();
             showOpenNewNoteBtn();
             printNotes();
-            
+    
         }
 });
 

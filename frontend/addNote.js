@@ -52,6 +52,7 @@ export default saveNewNoteBtn.addEventListener("click", () => {
                             // om vi vill skicka in användaren som är inloggad hade vi istället skrivit: userId: localStorage.getItem("userId")
     }
 
+    
     fetch("http://localhost:3000/notes", {
         method: "POST",
         headers: {
@@ -67,6 +68,8 @@ export default saveNewNoteBtn.addEventListener("click", () => {
         newNoteText.value = "";
 
         printNotes();
-        
+
+         alert("Ditt dokument är sparat!");
+         newNoteForm.style.display = "none";
     })
 });
