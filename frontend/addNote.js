@@ -1,5 +1,7 @@
 import printNotes from "./printNotes.js";
 
+
+// --------------------- NYTT DOKUMENT FORMULÄR -------------------- //
 function newNoteForm() {
     let newNoteForm = document.getElementById("NewNoteForm");
 
@@ -28,9 +30,13 @@ function newNoteForm() {
     saveNewNoteBtn.id = "saveNewNoteBtn";
     saveNewNoteBtn.className = "save-button";
     saveNewNoteBtn.innerText = "Spara";
+
     newNoteForm.appendChild(saveNewNoteBtn);
+    newNoteForm.appendChild(document.createElement("button"));
 }
- // newNoteForm();
+    // newNoteForm(); 
+
+// -------------------------- SPARA KNAPP --------------------------- //
 
 let newNoteName = document.getElementById("newNoteName");
 let newNoteText = document.getElementById("newNoteText");
@@ -62,7 +68,5 @@ export default saveNewNoteBtn.addEventListener("click", () => {             //ex
 
         printNotes();
         
-        
     })
-
 });
