@@ -3,7 +3,7 @@ import printNotes from "./printNotes.js";
 
 // --------------------- NYTT DOKUMENT FORMULÄR -------------------- //
 function printNewNoteForm() {
-    let newNoteForm = document.getElementById("NewNoteForm");
+    let newNoteForm = document.getElementById("newNoteForm");
 
     let newNoteName = document.createElement("input");
     newNoteName.type = "text";
@@ -32,9 +32,9 @@ function printNewNoteForm() {
     saveNewNoteBtn.innerText = "Spara";
 
     newNoteForm.appendChild(saveNewNoteBtn);
-    newNoteForm.appendChild(document.createElement("button"));
 }
     printNewNoteForm(); 
+    
 
 // -------------------------- SPARA KNAPP FUNKTION --------------------------- //
 

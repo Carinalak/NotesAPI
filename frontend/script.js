@@ -9,12 +9,13 @@ import deleteNote from "./deleteNote.js";
 function printOpenNewNoteBtn() {
 
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
+    let newNoteForm = document.getElementById("newNoteForm");
     //let openNewNoteBtn = document.createElement("button");
-    openNewNoteBtn.id = "openNewNoteBtn";
+    //openNewNoteBtn.id = "openNewNoteBtn";
     openNewNoteBtn.innerText = "Skapa nytt dokument";
     
     openNewNoteBtn.addEventListener("click",  () => {
-        printNewNoteForm(); 
+        newNoteForm.style.display = "block"; 
         console.log();
     });
 };
@@ -42,7 +43,7 @@ function printLoginBtn() {
 }
 if (localStorage.getItem("user")) {
     printLogoutBtn();
-
+    
     } else {
         printLoginBtn();
     }
@@ -57,10 +58,9 @@ loginBtn.addEventListener("click", () => {
     if (localStorage.getItem("user")) {
         localStorage.removeItem("user");
         printLoginBtn();
-        hideOpenNewNoteBtn(); // Dölj knappen när du loggar ut
+        hideOpenNewNoteBtn();
         notesList.innerHTML = "";
-        newNoteForm.innerHTML = "";
-
+        newNoteForm.style.display = "none";
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
             printLogoutBtn();

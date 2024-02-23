@@ -45,6 +45,10 @@ li:nth-child(odd) {
     position: relative;
     right: 0;
 }
+
 .Login-box {
     width: 100px;
+}
+#newNoteForm {
+    display: none; /* Gömmer formuläret som standard */
 }
