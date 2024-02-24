@@ -29,13 +29,23 @@ export default function printNotes() {
 
             deleteIcon.addEventListener("click", () => {
                 console.log("noteid", note)
-                deleteNote(note.id); 
-            });
-
+                deleteNote(note.id) 
+                    .then(() => {
+                        alert("Ditt dokument raderades.");
+                        printNotes();
+                    })
+                    .catch(error => {
+                        console.error("Error deleting note:", error);
+                    });
+        });
+            
             li.appendChild(deleteIcon);
            
 
 // ------------------- SLUT DELETE ------------------------ //
+
+
+// --------------- ÖPPNA ETT DOKUMENT -------------------- //
 
             let textNode = document.createTextNode(note.name);
             li.appendChild(textNode);
@@ -52,8 +62,6 @@ export default function printNotes() {
         console.error("Error fetching notes:", error);
     });
 };
-
- // ------------------ ÖPPNA EN NOTE -------------------------- //
  
 function openNote(notesId) {
     fetch("http://localhost:3000/notes/" + notesId)

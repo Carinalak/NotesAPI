@@ -70,7 +70,7 @@ export default saveNewNoteBtn.addEventListener("click", () => {
 
          alert("Ditt dokument är sparat!");
          newNoteForm.style.display = "none";
-         openNote(data.id);
          printNotes();
+         newNotsList.style.display = "visible"; 
     })
 });
