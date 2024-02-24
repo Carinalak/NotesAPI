@@ -10,7 +10,7 @@ export default function printNotes() {
     .then(res => res.json())
     .then(data => {
         console.log("name", data);
-        notesList.innerHTML = "";
+        //notesList.innerHTML = "";
         
          // Omvänd ordning på arrayen
          data.reverse();
@@ -23,7 +23,7 @@ export default function printNotes() {
 
             li.style.cursor = "pointer";
 
-// ---------------- DELETE EN NOTE --------------------- //
+// ---------------- DELETE ICON I LISTAN --------------------- //
 
             deleteIcon.src = "img/deleteIcon.png";
             deleteIcon.alt = "Ta bort";
@@ -90,33 +90,17 @@ function openNote(notesId) {
         
             newNoteName.value = data[0].name;
             newNoteText.value = data[0].note;
-        
+ // -------------------- REDIGERA DOKUMENT ---------------------------------- //
+
             // Visa formuläret
             let newNoteForm = document.getElementById("newNoteForm");
             newNoteForm.style.display = "block";
         });
 
         let updatedNote = {
-            name: newNoteName.value,
-            note: newNoteText.value
-        };
-
-    fetch("http://localhost:3000/notes/" + notesId, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(updatedNote)
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log("Uppdaterat dokument:", data);
-    })
-    .catch(error => {
-        console.error("Fel vid uppdatering av dokument:", error);
-    });
-});
-
+        name: newNoteName.value,
+        note: newNoteText.value
+    };
 
         let noteContainer = document.getElementById("noteContainer");
         noteContainer.appendChild(documentTitle);
