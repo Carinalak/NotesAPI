@@ -35,17 +35,22 @@ function showOpenNewNoteBtn() {
 
 
 // ---------------------  SLUT KNAPP FÖR NYTT DOKUMENT ---------------------------- //
+
 // --------------------- KNAPP FÖR ALLA DOKUMENT ---------------------------- //
 
 function openNotesListBtn() {
     let openNotesListBtn = document.getElementById("openNotesListBtn");
+    //let notesList = document.getElementById("notesList");
 
     openNotesListBtn.innerText = "Se alla dokument";
     
     openNotesListBtn.addEventListener("click",  () => {
-        printNotes();
-        showNoteContainer();
-        hideNewNoteForm();
+        //notesList.style.display = "block";
+       //showNoteContainer();
+       //noteContainer.innerHTML = "";
+       hideNewNoteForm();
+       printNotes();
+        
         
         
         console.log("click");
@@ -127,8 +132,8 @@ loginBtn.addEventListener("click", () => {
             showOpenNewNoteBtn();
             openNewNoteBtn();
             showOpenNotesListBtn();
-            printNotes();
             openNotesListBtn();
+            printNotes();
     
         }
 });

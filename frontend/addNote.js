@@ -70,8 +70,14 @@ export default saveNewNoteBtn.addEventListener("click", () => {
 
          alert("Ditt dokument sparas.");
         noteContainer.innerHTML = ("Ditt dokument har sparats!");
+
+        setTimeout(() => {
+            noteContainer.innerHTML = "";
+            printNotes(); 
+        }, 2000);
+
          newNoteForm.style.display = "none";
-        //printNotes();
+        
         //showNoteContainer();
          //newNotesList.style.display = "visible"; 
     })

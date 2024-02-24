@@ -11,7 +11,7 @@ export default function printNotes() {
     .then(data => {
         console.log("name", data);
         notesList.innerHTML = "";
-
+        
          // Omvänd ordning på arrayen
          data.reverse();
 
@@ -20,6 +20,8 @@ export default function printNotes() {
             let li = document.createElement("li");
             let deleteIcon = document.createElement("img");
             let notesId = note.id;
+
+            li.style.cursor = "pointer";
 
 // ---------------- DELETE EN NOTE --------------------- //
 
@@ -40,7 +42,7 @@ export default function printNotes() {
         });
             
             li.appendChild(deleteIcon);
-           
+         
 
 // ------------------- SLUT DELETE ------------------------ //
 
@@ -54,7 +56,6 @@ export default function printNotes() {
                 openNote(note.id);
                 console.log("Click!");
             });
-
             notesList.appendChild(li);
         });
     })
@@ -75,6 +76,7 @@ function openNote(notesId) {
 
         let documentText = document.createElement("div");
         documentText.innerText = data[0].note;
+        
 
         let editBtn = document.createElement("button");
         editBtn.innerText = "Redigera dokument";
