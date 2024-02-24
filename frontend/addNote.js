@@ -1,4 +1,5 @@
 import printNotes from "./printNotes.js";
+import deleteNote from "./deleteNote.js";
 
 
 // --------------------- NYTT DOKUMENT FORMULÄR -------------------- //

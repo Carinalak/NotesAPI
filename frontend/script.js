@@ -27,7 +27,7 @@ function hideOpenNewNoteBtn() {
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
     openNewNoteBtn.style.display = "none";
 }
-// Visa openNewButton
+// Visa openNewNoteButton
 function showOpenNewNoteBtn() {
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
     openNewNoteBtn.style.display = "inline"; 
@@ -125,6 +125,7 @@ loginBtn.addEventListener("click", () => {
         hideOpenNotesListBtn();
         notesList.innerHTML = "";
         newNoteForm.style.display = "none"; 
+        hideNewNoteForm();
         
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));

@@ -2,6 +2,7 @@ import deleteNote from "./deleteNote.js";
 import addNote from "./addNote.js";
 
 
+
     
 // ------- SKRIVER UT ALLA NOTES TILL EN LISTA----- //
 
@@ -10,6 +11,7 @@ export default function printNotes() {
     .then(res => res.json())
     .then(data => {
         console.log("name", data);
+
         //notesList.innerHTML = "";
         
          // Omvänd ordning på arrayen
