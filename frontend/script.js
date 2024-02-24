@@ -16,10 +16,12 @@ function openNewNoteBtn() {
     
     openNewNoteBtn.addEventListener("click",  () => {
         newNoteForm.style.display = "block"; 
-        notesList.innerHTML = "";
+        noteContainer.innerHTML = "";
         console.log();
     });
+    
 };
+
 // Dölj openNewNoteButton
 function hideOpenNewNoteBtn() {
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
@@ -42,7 +44,9 @@ function openNotesListBtn() {
     
     openNotesListBtn.addEventListener("click",  () => {
         printNotes();
+        showNoteContainer();
         hideNewNoteForm();
+        
         
         console.log("click");
     });
@@ -51,6 +55,11 @@ function hideNewNoteForm() {
     let newNoteForm = document.getElementById("newNoteForm");
     newNoteForm.style.display = "none";
 }
+/*
+function showNewNoteForm() {
+    let newNoteForm = document.getElementById("newNoteForm");
+    newNoteForm.style.display = "visible";
+}*/
 
 // Dölj openNotesListBtn
 function hideOpenNotesListBtn() {
@@ -70,6 +79,10 @@ function showOpenNotesListBtn() {
 function hideNoteContainer() {
     let noteContainer = document.getElementById("noteContainer");
     noteContainer.style.display = "none";
+}
+function showNoteContainer() {
+    let noteContainer = document.getElementById("noteContainer");
+    noteContainer.style.display = "visible";
 }
 
 // --------- Logga ut användaren när de lämnar sidan ------ //

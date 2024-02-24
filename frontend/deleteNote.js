@@ -12,7 +12,10 @@ export default function deleteNote(notesId) {
     .then(res => res.json())
     .then(data => {
         console.log("Note raderad", data);
-                   
-        printNotes();
+        noteContainer.innerHTML = "Dokumentet har raderats.";
+        alert("Ditt dokument raderas.");
+       // printNotes();
+        newNotesList.style.display = "visible";          
+        
     })
 }

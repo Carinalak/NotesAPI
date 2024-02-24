@@ -43,6 +43,7 @@ let newNoteText = document.getElementById("newNoteText");
 let saveNewNoteBtn = document.getElementById("saveNewNoteBtn");
 
 export default saveNewNoteBtn.addEventListener("click", () => {  
+    
     console.log("click");
 
     let saveNote = {
@@ -66,11 +67,12 @@ export default saveNewNoteBtn.addEventListener("click", () => {
         console.log("spara note", data);
         newNoteName.value = "";
         newNoteText.value = "";
-       
 
-         alert("Ditt dokument är sparat!");
+         alert("Ditt dokument sparas.");
+        noteContainer.innerHTML = ("Ditt dokument har sparats!");
          newNoteForm.style.display = "none";
-         printNotes();
-         newNotsList.style.display = "visible"; 
+        //printNotes();
+        //showNoteContainer();
+         //newNotesList.style.display = "visible"; 
     })
 });

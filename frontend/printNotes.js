@@ -31,8 +31,8 @@ export default function printNotes() {
                 console.log("noteid", note)
                 deleteNote(note.id) 
                     .then(() => {
-                        alert("Ditt dokument raderades.");
-                        printNotes();
+                       // alert("Ditt dokument raderades.");
+                        //newNotesList.style.display = "visible"; 
                     })
                     .catch(error => {
                         console.error("Error deleting note:", error);
