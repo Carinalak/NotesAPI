@@ -64,3 +64,15 @@ Content-Type: application/json
 }
 
 ###
+
+// ÄNDRA ETT DOKUMENT
+
+PUT http://localhost:3000/notes/39
+Content-Type: application/json
+
+{
+  "name": "Albins nya dokument",
+  "note": "Hajarna lever i havet."
+}
+
+###

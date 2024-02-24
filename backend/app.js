@@ -103,6 +103,26 @@ app.delete("/notes/:notesId", (req, res) => {
     })
 })
 
+// ----------------------- ÄNDRA EN NOTE --------------- //
+
+app.put('/notes/:id', (req, res) => {
+    const noteId = req.params.id;
+    const updatedNote = req.body; 
+
+    const sql = 'UPDATE notes SET name = ?, note = ? WHERE id = ?';
+    const values = [updatedNote.name, updatedNote.note, noteId];
+
+    connection.query(sql, values, (error, results, fields) => {
+        if (error) {
+            console.error('Fel vid uppdatering av note: ' + error.message);
+            res.status(500).send('Serverfel vid uppdatering av note');
+            return;
+        }
+        console.log('Dokumentet är uppdaterat:', results.affectedRows);
+        res.send('Dokumentet har uppdaterats');
+    });
+});
+
 
 
 

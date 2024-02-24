@@ -77,10 +77,45 @@ function openNote(notesId) {
         let documentText = document.createElement("div");
         documentText.innerText = data[0].note;
         
+// ----------------------- REDIGERA KNAPP ------------------------------------- //
 
         let editBtn = document.createElement("button");
         editBtn.innerText = "Redigera dokument";
         editBtn.style.marginTop = "20px";
+
+        editBtn.addEventListener("click", () => {
+            // Fyll formuläret med befintligt dokument
+            let newNoteName = document.getElementById("newNoteName");
+            let newNoteText = document.getElementById("newNoteText");
+        
+            newNoteName.value = data[0].name;
+            newNoteText.value = data[0].note;
+        
+            // Visa formuläret
+            let newNoteForm = document.getElementById("newNoteForm");
+            newNoteForm.style.display = "block";
+        });
+
+        let updatedNote = {
+            name: newNoteName.value,
+            note: newNoteText.value
+        };
+
+    fetch("http://localhost:3000/notes/" + notesId, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedNote)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("Uppdaterat dokument:", data);
+    })
+    .catch(error => {
+        console.error("Fel vid uppdatering av dokument:", error);
+    });
+});
 
 
         let noteContainer = document.getElementById("noteContainer");
