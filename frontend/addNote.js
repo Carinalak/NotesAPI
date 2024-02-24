@@ -66,10 +66,11 @@ export default saveNewNoteBtn.addEventListener("click", () => {
         console.log("spara note", data);
         newNoteName.value = "";
         newNoteText.value = "";
-
-        printNotes();
+       
 
          alert("Ditt dokument är sparat!");
          newNoteForm.style.display = "none";
+         openNote(data.id);
+         printNotes();
     })
 });

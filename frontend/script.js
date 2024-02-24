@@ -4,7 +4,7 @@ import deleteNote from "./deleteNote.js";
 
 
 
-// --------------------- OpenNewNoteBtn ---------------------------- //
+// --------------------- VISA KNAPP FÖR NYTT DOKUMENT ---------------------------- //
 
 function printOpenNewNoteBtn() {
 
@@ -19,7 +19,6 @@ function printOpenNewNoteBtn() {
         console.log();
     });
 };
-
 // Dölj openNewNoteButton
 function hideOpenNewNoteBtn() {
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
@@ -30,6 +29,75 @@ function showOpenNewNoteBtn() {
     let openNewNoteBtn = document.getElementById("openNewNoteBtn");
     openNewNoteBtn.style.display = "inline"; 
 }
+
+// ---------------------  SLUT VISA KNAPP FÖR NYTT DOKUMENT ---------------------------- //
+// --------------------- VISA KNAPP FÖR ALLA DOKUMENT ---------------------------- //
+
+function printOpenNotesListBtn() {
+
+    let openNotesListBtn = document.getElementById("openNotesListBtn");
+    let newNoteForm = document.getElementById("newNoteForm");
+
+
+    //let openNewNoteBtn = document.createElement("button");
+    //openNewNoteBtn.id = "openNewNoteBtn";
+    openNotesListBtn.innerText = "Se alla dokument";
+    
+    openNotesListBtn.addEventListener("click",  () => {
+        newNoteForm.style.display = "block"; 
+        console.log();
+    });
+};
+// Dölj openNotesListBtn
+function hideOpenNewNoteBtn() {
+    let openNotesListBtn = document.getElementById("openNotesListBtn");
+    openNotesListBtn.style.display = "none";
+}
+// Visa openNotesListBtn
+function showOpenNewNoteBtn() {
+    let openNewNoteBtn = document.getElementById("openNotesListBtn");
+    openNotesListBtn.style.display = "inline"; 
+}
+
+
+
+
+
+
+// ---------------------  SLUT VISA KNAPP FÖR ALLA DOKUMENT ---------------------------- //
+
+
+// ---------------------  VISA KNAPP FÖR LISTAN ---------------------------- //
+/*
+function printOpenNotesListBtn() {
+
+    let openNotesListBtn = document.getElementById("openNotesListBtn");
+    openNotesListBtn.innerText = "Se dokumentlista";
+    openNotesListBtn.addEventListener("click",  () => {
+     
+        console.log();
+
+    });
+};
+
+// Dölj openNewNoteButton
+function hideOpenNotesListBtn() {
+    let openNotesListBtn = document.getElementById("OpenNotesListBtn");
+    openNotesListBtn.style.display = "none";
+}
+// Visa openNewButton
+function showOpenNotesListBtn() {
+    let openNotesListBtn = document.getElementById("OpenNotesListBtn");
+    openNotesListBtn.style.display = "inline"; 
+}
+// --------------------- SLUT VISA KNAPP FÖR LISTAN ---------------------------- //
+*/
+
+function hideNoteContainer() {
+    let noteContainer = document.getElementById("noteContainer");
+    noteContainer.style.display = "none";
+}
+
 
 // ------------- OpenNewNoteBtn slutar -------------------- //
 
@@ -63,14 +131,19 @@ loginBtn.addEventListener("click", () => {
     if (localStorage.getItem("user")) {
         localStorage.removeItem("user");
         printLoginBtn();
+        hideNoteContainer();
         hideOpenNewNoteBtn();
+        //HideOpenNotesListBtn();
         notesList.innerHTML = "";
         newNoteForm.style.display = "none";
+        
+        
         } else  {
             localStorage.setItem("user", JSON.stringify("mittlösenord!!!"));
             printLogoutBtn();
             printOpenNewNoteBtn();
             showOpenNewNoteBtn();
+            //showOpenNotesListBtn();
             printNotes();
     
         }

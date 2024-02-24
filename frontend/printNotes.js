@@ -1,4 +1,5 @@
 import deleteNote from "./deleteNote.js";
+import addNote from "./addNote.js";
 
 
     
@@ -32,6 +33,7 @@ export default function printNotes() {
             });
 
             li.appendChild(deleteIcon);
+           
 
 // ------------------- SLUT DELETE ------------------------ //
 
@@ -51,7 +53,7 @@ export default function printNotes() {
     });
 };
 
- // SKRIVER UT DET DOKUMENT SOM MAN KLICKAR PÅ
+ // ------------------ ÖPPNA EN NOTE -------------------------- //
  
 function openNote(notesId) {
     fetch("http://localhost:3000/notes/" + notesId)
@@ -60,15 +62,22 @@ function openNote(notesId) {
 
         document.getElementById("noteContainer").innerHTML = "";
 
-        let h3 = document.createElement("h3");
-        h3.innerText = data[0].name;
+        let documentTitle = document.createElement("h3");
+        documentTitle.innerText = data[0].name;
 
-        let div = document.createElement("div");
-        div.innerText = data[0].note;
+        let documentText = document.createElement("div");
+        documentText.innerText = data[0].note;
+
+        let editBtn = document.createElement("button");
+        editBtn.innerText = "Redigera dokument";
+        editBtn.style.marginTop = "20px";
+
 
         let noteContainer = document.getElementById("noteContainer");
-        noteContainer.appendChild(h3);
-        noteContainer.appendChild(div);
+        noteContainer.appendChild(documentTitle);
+        noteContainer.appendChild(documentText);
+        noteContainer.appendChild(editBtn);
+
         console.log("data", data);
         console.log(notesId);
     })

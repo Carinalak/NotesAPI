@@ -1,4 +1,5 @@
 import printNotes from "./printNotes.js";
+import addNote from "./addNote.js";
 
 
 export default function deleteNote(notesId) {
@@ -11,7 +12,7 @@ export default function deleteNote(notesId) {
     .then(res => res.json())
     .then(data => {
         console.log("Note raderad", data);
-
+                   
         printNotes();
     })
 }
