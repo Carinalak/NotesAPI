@@ -1,12 +1,6 @@
 body {
     background-color: lightgrey;
 }
-
-/*
-input {
-    width: 600px;
-    border-radius: 2px;
-}*/
 .head {
     display: flex;
     flex-direction: row;
@@ -33,27 +27,21 @@ ul {
     width: 300px;
     padding: 0;
     margin-left: 0;
-   /* border: 2px solid white;
-    border-radius: 5px;*/
 }
 
 li {
     height: 20px;
 }
-
 li:nth-child(odd) {
     background-color: #f2f2f2;
 }
-
 #openNewNoteBtn {
     display: none;
 }
-
 #saveNewNoteBtn {
     position: relative;
     right: 0;
 }
-
 .Login-box {
     width: 100px;
 }

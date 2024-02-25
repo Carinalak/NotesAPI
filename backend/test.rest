@@ -12,7 +12,6 @@ GET http://localhost:3000/notes/28
 ###
 
 
-
 // SKAPA NOTE
 POST http://localhost:3000/notes/
 Content-Type: application/json
@@ -51,7 +50,6 @@ GET http://localhost:3000/users/notes/notesuser
 
 
 ###
-
 
 
 // LOGGA IN USER // VID FEL LÖSENORD SÅ SKALL SVARA MED 401

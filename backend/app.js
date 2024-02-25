@@ -85,6 +85,7 @@ app.post("/notes", (req, res) => {
 })
 
 // ------------------------ RADERA EN NOTE -------------------------- //
+
 app.delete("/notes/:notesId", (req, res) => {
     let notesId = req.params.notesId;
     console.log("Radera notesId", notesId);
@@ -110,7 +111,6 @@ app.delete("/notes/:notesId", (req, res) => {
     });
 });
 
-
 // ----------------------- ÄNDRA EN NOTE --------------- //
 
 app.put('/notes/:id', (req, res) => {
@@ -130,28 +130,6 @@ app.put('/notes/:id', (req, res) => {
         res.send('Dokumentet har uppdaterats');
     });
 });
-
-
-
-
-
-
-
-
-// ------------- ATT GÖRA -------------------- //
-
-// Kunna öppna en note genom att klicka på namnet
-// Kunna redigera en note
-// Kunna radera en note
-
-// Logga in en användare
-// Kunna välja om du vill se en note i redigeringsläge eller i visningsläge
-// Göra en meny i frontend
-
-
-// -------------- KLARA ---------------------- //
-// Fixa till första post
-// Skriv ut listan på get i frontenden
 
 
 module.exports = app;

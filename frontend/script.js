@@ -31,7 +31,6 @@ function showOpenNewNoteBtn() {
     openNewNoteBtn.style.display = "inline"; 
 }
 
-
 // ---------------------  SLUT KNAPP FÖR NYTT DOKUMENT ---------------------------- //
 
 // --------------------- KNAPP FÖR ALLA DOKUMENT ---------------------------- //
@@ -48,8 +47,6 @@ function openNotesListBtn() {
        //noteContainer.innerHTML = "";
        hideNewNoteForm();
        printNotes();
-        
-        
         console.log("click");
     });
 }

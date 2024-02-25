@@ -2,7 +2,6 @@ import printNotes from "./printNotes.js";
 import addNote from "./addNote.js";
 
 
-
 export default function deleteNote(notesId) {
 
     console.log("delete note", notesId);
@@ -20,13 +19,6 @@ export default function deleteNote(notesId) {
         
         setTimeout(() => {
             noteContainer.innerHTML = ""; 
-        }, 2000);
-        
-
-
-        
- 
-        
-        
+        }, 2000); 
     })
 }
