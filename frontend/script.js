@@ -3,7 +3,6 @@ import addNote from "./addNote.js";
 import deleteNote from "./deleteNote.js";
 
 
-
 // --------------------- KNAPP FÖR NYTT DOKUMENT ---------------------------- //
 
 function openNewNoteBtn() {
