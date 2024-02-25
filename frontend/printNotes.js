@@ -44,7 +44,7 @@ export default function printNotes() {
         });
             
             li.appendChild(deleteIcon);
-         
+   
 
 // ------------------- SLUT DELETE ------------------------ //
 
@@ -107,16 +107,11 @@ function openNote(notesId) {
             // Visa formuläret
             let newNoteForm = document.getElementById("newNoteForm");
             newNoteForm.style.display = "block";
-        });
-
-
-
-        
+        });      
         let updatedNote = {
         name: newNoteName.value,
         note: newNoteText.value
     };
-
         let noteContainer = document.getElementById("noteContainer");
         noteContainer.appendChild(documentTitle);
         noteContainer.appendChild(documentText);

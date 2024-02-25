@@ -25,6 +25,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
+
+// ------------------------ HÄMTA ALLA NOTES --------------------- //
+
 app.get("/notes", (req, res) => {
 
     connection.connect((err) => {
@@ -40,7 +43,7 @@ app.get("/notes", (req, res) => {
     })
 })
 
-// HÄMTA SPECIFIK NOTE
+// ------------------------ HÄMTA SPECIFIK NOTE ------------------ //
 
 app.get("/notes/:notesId", (req, res) => {
     let notesId = req.params.notesId;
@@ -58,9 +61,6 @@ app.get("/notes/:notesId", (req, res) => {
         res.json(data);
     });
 });
-
-
-
 
 
 // ------------------------ SKAPA NY NOTE -------------------------- //
@@ -84,24 +84,32 @@ app.post("/notes", (req, res) => {
     })  
 })
 
+// ------------------------ RADERA EN NOTE -------------------------- //
 app.delete("/notes/:notesId", (req, res) => {
     let notesId = req.params.notesId;
-    console.log("radera notesId", notesId);
+    console.log("Radera notesId", notesId);
+    
     connection.connect((err) => {
-        if (err) console.log("err", err);
+        if (err) {
+            console.log("Fel vid anslutning till databasen:", err);
+            return res.status(500).json({ message: "Databasanslutningsfel" });
+        }
 
-        let query = "UPDATE notes SET done = 1 WHERE id = ?"; 
+        let query = "DELETE FROM notes WHERE id = ?"; 
         let values = [notesId];
         
-       
         connection.query(query, values, (err, data) => {
-            if (err) console.log("err", err);
-            console.log("notes", data);
-            res.json({message: "Note raderad"});
-        })
+            if (err) {
+                console.log("Fel vid radering av anteckning:", err);
+                return res.status(500).json({ message: "Fel vid radering av anteckning" });
+            }
+            
+            console.log("Anteckning raderad:", data);
+            res.json({ message: "Anteckning raderad framgångsrikt" });
+        });
+    });
+});
 
-    })
-})
 
 // ----------------------- ÄNDRA EN NOTE --------------- //
 
