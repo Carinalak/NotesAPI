@@ -15,11 +15,10 @@ function openNewNoteBtn() {
     openNewNoteBtn.innerText = "Skapa nytt dokument";
     
     openNewNoteBtn.addEventListener("click",  () => {
-        newNoteForm.style.display = "block"; 
-        noteContainer.innerHTML = "";
+        newNoteForm.style.display = "inline"; 
+        //noteContainer.innerHTML = "";
         console.log();
     });
-    
 };
 
 // Dölj openNewNoteButton
@@ -50,7 +49,6 @@ function openNotesListBtn() {
        //noteContainer.innerHTML = "";
        hideNewNoteForm();
        printNotes();
-        
         
         
         console.log("click");

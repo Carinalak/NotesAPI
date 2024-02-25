@@ -75,9 +75,20 @@ function openNote(notesId) {
 
         let documentTitle = document.createElement("h3");
         documentTitle.innerText = data[0].name;
+        documentTitle.style.backgroundColor = "#f2f2f2";
+        documentTitle.style.padding = "6px";
+        documentTitle.style.textAlign = "center";
+        documentTitle.style.borderRadius = "4px";
 
         let documentText = document.createElement("div");
         documentText.innerText = data[0].note;
+        documentText.style.backgroundColor = "#f2f2f2";
+        documentText.style.padding = "6px";
+        documentText.style.textAlign = "left";
+        documentTitle.style.borderRadius = "4px";
+        documentText.style.width = "200px";
+        documentText.style.marginTop = "5px";
+
         
 // ----------------------- REDIGERA KNAPP ------------------------------------- //
 
@@ -89,14 +100,16 @@ function openNote(notesId) {
             // Fyll formuläret med befintligt dokument
             let newNoteName = document.getElementById("newNoteName");
             let newNoteText = document.getElementById("newNoteText");
+            editBtn.style.display = "none";
         
             newNoteName.value = data[0].name;
             newNoteText.value = data[0].note;
+
  // -------------------- REDIGERA DOKUMENT ---------------------------------- //
 
             // Visa formuläret
             let newNoteForm = document.getElementById("newNoteForm");
-            newNoteForm.style.display = "block";
+            newNoteForm.style.display = "inline";
         });
 
         let updatedNote = {

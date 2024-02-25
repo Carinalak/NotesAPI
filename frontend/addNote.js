@@ -12,15 +12,17 @@ function printNewNoteForm() {
     newNoteName.placeholder = "Dokumentnamn";
     newNoteName.style.width = "150px";
     newNoteName.style.marginBottom = "10px";
+    newNoteName.style.marginRight = "20px";
     newNoteName.style.borderRadius = "2px";
 
     let newNoteText = document.createElement("textarea");
     newNoteText.id = "newNoteText";
     newNoteText.placeholder = "Skriv din text här.";
-    newNoteText.style.width = "600px";
+    newNoteText.style.width = "500px";
     newNoteText.style.height = "300px";
     newNoteText.style.borderRadius = "2px";
     newNoteText.style.marginBottom = "10px";
+    newNoteText.style.marginRight = "20px";
 
     newNoteForm.appendChild(newNoteName);
     newNoteForm.appendChild(document.createElement("br"));
@@ -69,11 +71,12 @@ export default saveNewNoteBtn.addEventListener("click", () => {
         newNoteName.value = "";
         newNoteText.value = "";
 
-         alert("Ditt dokument sparas.");
-        noteContainer.innerHTML = ("Ditt dokument har sparats!");
+         alert("Ditt dokument har sparats.");
+        //noteContainer.innerHTML = ("Ditt dokument har sparats!");
 
         setTimeout(() => {
-            noteContainer.innerHTML = "";
+            //noteContainer.innerHTML = "";
+            newNoteForm.style.display = "inline"; 
             printNotes(); 
         }, 2000);
 

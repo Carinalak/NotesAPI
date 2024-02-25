@@ -7,15 +7,20 @@ input {
     width: 600px;
     border-radius: 2px;
 }*/
-.main {
+.head {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     
 }
-.main-container {
-    position: relative;
+.head-container {
+  
     width: 600px;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
 }
 
 .delete-icon {
@@ -25,9 +30,11 @@ input {
 }
 ul {
     list-style-type: none;
-    width: 600px;
+    width: 300px;
     padding: 0;
     margin-left: 0;
+   /* border: 2px solid white;
+    border-radius: 5px;*/
 }
 
 li {

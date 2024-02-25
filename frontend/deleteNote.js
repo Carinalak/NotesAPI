@@ -14,14 +14,17 @@ export default function deleteNote(notesId) {
         console.log("Note raderad", data);
 
         alert("Ditt dokument raderas.");
-        // printNotes();
-        noteContainer.innerHTML = "Dokumentet har raderats."; 
-
-        setTimeout(() => {
-            noteContainer.innerHTML = "";
-            printNotes(); 
-        }, 2000);
         
-         
+        noteContainer.innerHTML = "Dokumentet har raderats."; 
+        
+        setTimeout(() => {
+            noteContainer.innerHTML ="";
+        }, 2000);
+
+
+        
+ 
+        
+        
     })
 }
