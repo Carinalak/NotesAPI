@@ -3,7 +3,7 @@ import deleteNote from "./deleteNote.js";
 
 
 // --------------------- NYTT DOKUMENT FORMULÄR -------------------- //
-function printNewNoteForm() {
+export default function printNewNoteForm() {
     let newNoteForm = document.getElementById("newNoteForm");
 
     let newNoteName = document.createElement("input");
@@ -45,7 +45,7 @@ let newNoteName = document.getElementById("newNoteName");
 let newNoteText = document.getElementById("newNoteText");
 let saveNewNoteBtn = document.getElementById("saveNewNoteBtn");
 
-export default saveNewNoteBtn.addEventListener("click", () => {  
+ saveNewNoteBtn.addEventListener("click", () => {  
     
     console.log("click");
 
